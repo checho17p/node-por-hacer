@@ -2,9 +2,14 @@ const fs = require('fs');
 
 let listadoPorHacer = [];
 
-const getListado = () => {
+const getListado = (completado) => {
 
     cargarDB();
+
+    if (completado !== undefined) {
+
+        return listadoPorHacer.filter(tarea => tarea.completado === completado);
+    }
 
     return listadoPorHacer;
 
